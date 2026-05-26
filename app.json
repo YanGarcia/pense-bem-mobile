@@ -16,6 +16,9 @@
       "adaptiveIcon": {
         "backgroundColor": "#0f1923"
       }
+    },
+    "experiments": {
+      "reactNativeBridgeless": false
     }
   }
 }
