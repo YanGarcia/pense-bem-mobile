@@ -7,7 +7,7 @@ import {
   Animated,
   Dimensions,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
@@ -50,6 +50,7 @@ const BUTTON_SIZE = Math.min((SCREEN_WIDTH - 80) / 2, 140);
 export const QuizScreen: React.FC<Props> = ({ navigation, route }) => {
   const { codigo } = route.params;
   const [state, actions] = useQuiz(codigo);
+  const insets = useSafeAreaInsets();
   const {
     questaoAtual,
     tentativaAtual,
@@ -163,7 +164,7 @@ export const QuizScreen: React.FC<Props> = ({ navigation, route }) => {
   };
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <View style={[styles.safe, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
       <View style={styles.container}>
 
         {/* ─── TecToy Header ──────────────────────────────── */}
@@ -314,7 +315,7 @@ export const QuizScreen: React.FC<Props> = ({ navigation, route }) => {
           <Text style={styles.reiniciarText}>Reiniciar Jogo</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

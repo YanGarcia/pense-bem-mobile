@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Animated,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
@@ -40,6 +40,7 @@ export const ResultScreen: React.FC<Props> = ({ navigation, route }) => {
   const result = getResultData(pontuacao, pontuacaoMaxima);
 
   const scaleAnim = useRef(new Animated.Value(0)).current;
+  const insets = useSafeAreaInsets();
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -71,7 +72,7 @@ export const ResultScreen: React.FC<Props> = ({ navigation, route }) => {
     pontuacaoMaxima > 0 ? Math.round((pontuacao / pontuacaoMaxima) * 100) : 0;
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <View style={[styles.safe, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
       <View style={styles.container}>
 
         {/* ─── TecToy Header ──────────────────────────────── */}
@@ -175,7 +176,7 @@ export const ResultScreen: React.FC<Props> = ({ navigation, route }) => {
         </Animated.View>
 
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

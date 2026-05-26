@@ -9,7 +9,7 @@ import {
   Platform,
   Animated,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
 import { validarCodigo } from '../hooks/useQuiz';
@@ -27,6 +27,7 @@ export const CodeInputScreen: React.FC<Props> = ({ navigation }) => {
   const [codigo, setCodigo] = useState('');
   const [erro, setErro] = useState('');
   const shakeAnim = useRef(new Animated.Value(0)).current;
+  const insets = useSafeAreaInsets();
 
   const shake = () => {
     Animated.sequence([
@@ -60,7 +61,7 @@ export const CodeInputScreen: React.FC<Props> = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <View style={[styles.safe, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
       <KeyboardAvoidingView
         style={styles.flex}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -179,7 +180,7 @@ export const CodeInputScreen: React.FC<Props> = ({ navigation }) => {
           </Text>
         </View>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </View>
   );
 };
 
