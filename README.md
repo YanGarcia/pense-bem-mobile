@@ -104,3 +104,4 @@ Edite `src/data/livros.json`. Formato:
 | `react-native-safe-area-context` | Safe areas (notch etc.) |
 | `react-native-screens` | Otimização de telas |
 "# pense-bem-mobile" 
+"# pense-bem-mobile" 
