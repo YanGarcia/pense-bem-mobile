@@ -8,7 +8,9 @@
     "splash": {
       "backgroundColor": "#0f1923"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": false
     },
@@ -17,9 +19,9 @@
         "backgroundColor": "#0f1923"
       }
     },
-    "newArchEnabled": false,
-    "experiments": {
-      "reactNativeBridgeless": false
+    "web": {
+      "bundler": "metro",
+      "output": "static"
     }
   }
 }
