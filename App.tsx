@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -26,7 +26,7 @@ export type RootStackParamList = {
   };
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>();
 
 // ─── App ──────────────────────────────────────────────────────────────────────
 
@@ -41,7 +41,8 @@ export default function App() {
             screenOptions={{
               headerShown: false,
               contentStyle: { backgroundColor: theme.colors.bg },
-              animation: 'slide_from_right',
+              animationEnabled: true,
+              cardStyle: { backgroundColor: theme.colors.bg },
             }}
           >
             <Stack.Screen name="CodeInput" component={CodeInputScreen} />

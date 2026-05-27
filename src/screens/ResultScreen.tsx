@@ -7,7 +7,7 @@ import {
   Animated,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
 import { theme } from '../theme';
@@ -16,7 +16,7 @@ import { TOTAL_QUESTOES } from '../hooks/useQuiz';
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Props = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Result'>;
+  navigation: StackNavigationProp<RootStackParamList, 'Result'>;
   route: RouteProp<RootStackParamList, 'Result'>;
 };
 

@@ -10,18 +10,6 @@
     },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": false
-    },
-    "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#0f1923"
-      }
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static"
-    }
+    ]
   }
 }

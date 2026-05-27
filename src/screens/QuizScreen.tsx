@@ -8,7 +8,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
 import { useQuiz, TOTAL_QUESTOES, PONTUACAO_MAXIMA } from '../hooks/useQuiz';
@@ -18,7 +18,7 @@ import { theme } from '../theme';
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Props = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Quiz'>;
+  navigation: StackNavigationProp<RootStackParamList, 'Quiz'>;
   route: RouteProp<RootStackParamList, 'Quiz'>;
 };
 

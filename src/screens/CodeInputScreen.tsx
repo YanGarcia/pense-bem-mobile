@@ -10,7 +10,7 @@ import {
   Animated,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../App';
 import { validarCodigo } from '../hooks/useQuiz';
 import { theme } from '../theme';
@@ -18,7 +18,7 @@ import { theme } from '../theme';
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Props = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'CodeInput'>;
+  navigation: StackNavigationProp<RootStackParamList, 'CodeInput'>;
 };
 
 // ─── Component ────────────────────────────────────────────────────────────────
