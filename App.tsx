@@ -40,8 +40,6 @@ export default function App() {
             initialRouteName="CodeInput"
             screenOptions={{
               headerShown: false,
-              contentStyle: { backgroundColor: theme.colors.bg },
-              animationEnabled: true,
               cardStyle: { backgroundColor: theme.colors.bg },
             }}
           >

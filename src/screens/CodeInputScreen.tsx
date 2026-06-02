@@ -13,6 +13,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../App';
 import { validarCodigo } from '../hooks/useQuiz';
+import { obterTitulo } from '../data/gabarito';
 import { theme } from '../theme';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -105,6 +106,15 @@ export const CodeInputScreen: React.FC<Props> = ({ navigation }) => {
                     ? `Livro: ${codigo.padEnd(2, '-')}  Programa: -`
                     : `Livro: ${codigo.slice(0, 2)}  Programa: ${codigo.slice(2)}`}
                 </Text>
+                {codigo.length === 3 && validarCodigo(codigo) && (
+                  <Text
+                    style={styles.lcdTitle}
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
+                  >
+                    {obterTitulo(codigo) || ''}
+                  </Text>
+                )}
               </View>
             </View>
 
@@ -304,6 +314,13 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#4a4a18',
     letterSpacing: 1,
+  },
+  lcdTitle: {
+    fontFamily: theme.fonts.lcd,
+    fontSize: 8,
+    color: theme.colors.lcd,
+    marginTop: theme.spacing.xs,
+    maxWidth: '90%',
   },
 
   hiddenInput: {

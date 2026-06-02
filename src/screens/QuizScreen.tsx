@@ -12,7 +12,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
 import { useQuiz, TOTAL_QUESTOES, PONTUACAO_MAXIMA } from '../hooks/useQuiz';
-import { LETRAS } from '../data/gabarito';
+import { LETRAS, obterTitulo } from '../data/gabarito';
 import { theme } from '../theme';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -180,6 +180,17 @@ export const QuizScreen: React.FC<Props> = ({ navigation, route }) => {
               {codigo}-{'>'}
               {questaoNum}:
             </Text>
+
+            {/* Título do livro */}
+            {obterTitulo(codigo) && (
+              <Text
+                style={styles.lcdTitle}
+                numberOfLines={1}
+                ellipsizeMode="tail"
+              >
+                {obterTitulo(codigo)}
+              </Text>
+            )}
 
             {/* Tentativa */}
             <View style={styles.tentativaBox}>
@@ -388,6 +399,13 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 6,
     marginBottom: theme.spacing.sm,
+  },
+  lcdTitle: {
+    fontFamily: theme.fonts.lcd,
+    fontSize: 9,
+    color: theme.colors.lcd,
+    marginBottom: theme.spacing.xs,
+    maxWidth: '95%',
   },
   tentativaBox: {
     backgroundColor: 'rgba(232,200,64,0.12)',

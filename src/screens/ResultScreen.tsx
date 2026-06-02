@@ -12,6 +12,7 @@ import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../../App';
 import { theme } from '../theme';
 import { TOTAL_QUESTOES } from '../hooks/useQuiz';
+import { obterTitulo } from '../data/gabarito';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -117,7 +118,21 @@ export const ResultScreen: React.FC<Props> = ({ navigation, route }) => {
             <Text style={styles.statValue}>{codigo}</Text>
           </View>
           <View style={styles.statDivider} />
-
+          {obterTitulo(codigo) && (
+            <>
+              <View style={styles.statRow}>
+                <Text style={styles.statLabel}>LIVRO</Text>
+                <Text
+                  style={[styles.statValue, { maxWidth: '60%' }]}
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                >
+                  {obterTitulo(codigo)}
+                </Text>
+              </View>
+              <View style={styles.statDivider} />
+            </>
+          )}
           <View style={styles.statRow}>
             <Text style={styles.statLabel}>ACERTOS NA 1ª TENTATIVA</Text>
             <Text style={[styles.statValue, { color: theme.colors.correct }]}>
