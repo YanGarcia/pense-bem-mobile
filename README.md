@@ -23,21 +23,18 @@ Escaneie o QR code com o app **Expo Go** (iOS/Android) ou pressione `a` para And
 ## 📐 Estrutura
 
 ```
-pense-bem/
+pense-bem-mobile/
 ├── App.tsx                    # Entrada + Navegação (Stack)
 ├── src/
 │   ├── theme.ts               # Cores, espaçamentos, fontes
 │   ├── data/
-│   │   └── livros.json        # Base de questões (local)
+│   │   └── gabarito.ts        # Base de gabaritos (respostas corretas)
 │   ├── hooks/
 │   │   └── useQuiz.ts         # Lógica do quiz (hook central)
-│   ├── screens/
-│   │   ├── CodeInputScreen.tsx  # Tela 1: inserção do código
-│   │   ├── QuizScreen.tsx       # Tela 2: perguntas/respostas
-│   │   └── ResultScreen.tsx     # Tela 3: pontuação final
-│   └── components/
-│       ├── QuestionCard.tsx     # Card da questão
-│       └── AnswerButton.tsx     # Botão de alternativa
+│   └── screens/
+│       ├── CodeInputScreen.tsx  # Tela 1: inserção do código
+│       ├── QuizScreen.tsx       # Tela 2: perguntas/respostas
+│       └── ResultScreen.tsx     # Tela 3: pontuação final
 ```
 
 ---
@@ -50,6 +47,10 @@ pense-bem/
 | `012`  | Livro 01, Programa 2 — Ciências e Geografia |
 | `021`  | Livro 02, Programa 1 — Ciências e Literatura |
 | `022`  | Livro 02, Programa 2 — História e Matemática |
+| `091`  | Livro 09, Programa 1 — Maravilhas do Mundo |
+| `092`  | Livro 09, Programa 2 — Maravilhas do Mundo |
+| `093`  | Livro 09, Programa 3 — Maravilhas do Mundo |
+| `094`  | Livro 09, Programa 4 — Maravilhas do Mundo |
 
 ---
 
@@ -71,25 +72,32 @@ Estilo **retrô LCD** inspirado no brinquedo original:
 
 ---
 
-## ➕ Adicionando Questões
+## ➕ Adicionando Programas
 
-Edite `src/data/livros.json`. Formato:
+Edite `src/data/gabarito.ts`. O formato armazena apenas as **respostas corretas** (0=A, 1=B, 2=C, 3=D):
 
-```json
-{
-  "XX": {
-    "Y": [
-      {
-        "pergunta": "Texto da pergunta?",
-        "alternativas": ["Op A", "Op B", "Op C", "Op D"],
-        "correta": 0
-      }
-    ]
-  }
-}
+```typescript
+export const GABARITOS: Record<string, ProgramaGabarito> = {
+  'XYZ': {
+    livro: 'XX',           // Número do livro (ex: '09')
+    programa: 'Y',         // Número do programa (ex: '1')
+    titulo: 'Título',      // Opcional
+    respostas: [
+      0, // 01. A
+      1, // 02. B
+      2, // 03. C
+      3, // 04. D
+      // ... 26 respostas mais (total de 30)
+    ],
+  },
+};
 ```
 
-> `correta` é o **índice** da alternativa correta (0 = primeira, 1 = segunda...).
+**Notas:**
+- O código é formado por 3 dígitos: `XY` (livro) + `Z` (programa)
+- Cada programa deve ter exatamente **30 respostas**
+- Valores: 0=A, 1=B, 2=C, 3=D
+- As perguntas são geradas via API externa (não hardcoded)
 
 ---
 
