@@ -43,10 +43,6 @@ pense-bem-mobile/
 
 | Código | Conteúdo |
 |--------|----------|
-| `011`  | Livro 01, Programa 1 — Matemática e Geografia (básico) |
-| `012`  | Livro 01, Programa 2 — Ciências e Geografia |
-| `021`  | Livro 02, Programa 1 — Ciências e Literatura |
-| `022`  | Livro 02, Programa 2 — História e Matemática |
 | `091`  | Livro 09, Programa 1 — Maravilhas do Mundo |
 | `092`  | Livro 09, Programa 2 — Maravilhas do Mundo |
 | `093`  | Livro 09, Programa 3 — Maravilhas do Mundo |
