@@ -107,5 +107,3 @@ export const GABARITOS: Record<string, ProgramaGabarito> = {
 | `react-native-gesture-handler` | Gestos (requerido pelo Navigation) |
 | `react-native-safe-area-context` | Safe areas (notch etc.) |
 | `react-native-screens` | Otimização de telas |
-"# pense-bem-mobile" 
-"# pense-bem-mobile" 
